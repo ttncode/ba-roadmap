@@ -54,7 +54,7 @@
 }
 
 * { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: 72px; }
 body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.75 var(--sans); }
 .wrap { max-width: 960px; margin: 0 auto; padding: 0 16px; }
 a { color: var(--ai); }
@@ -80,7 +80,7 @@ strong { font-weight: 600; }
 .tab[aria-selected="true"] .jp { color: var(--shu); }
 .tab:focus-visible, .btn:focus-visible, summary:focus-visible { outline: 2px solid var(--ai); outline-offset: 2px; }
 
-main { padding: 44px 0 96px; }
+main.wrap { padding-top: 44px; padding-bottom: 96px; }
 .panel[hidden] { display: none; }
 .panel-head { margin-bottom: 28px; }
 .eyebrow { margin: 0; font: 500 .76rem/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--shu); }
@@ -222,7 +222,7 @@ figure { margin: 0; }
 .site-footer { border-top: 1px solid var(--line); padding: 24px 0 40px; color: var(--ink-3); font-size: .8rem; }
 
 @media (max-width: 640px) {
-  main { padding-top: 32px; }
+  main.wrap { padding-top: 32px; padding-bottom: 72px; }
   h2 { font-size: 1.45rem; }
   .card, .step, .trap { padding: 18px; }
   .answer-body { padding: 6px 14px 16px; }
@@ -3194,7 +3194,7 @@ flowchart TB
 
   const startTab = location.hash.slice(1) || DEFAULT_TAB;
   const fontsReady = document.fonts ? document.fonts.ready : Promise.resolve();
-  fontsReady.then(() => activateTab(startTab), () => activateTab(startTab));
+  fontsReady.then(() => openTab(startTab), () => openTab(startTab));
 })();
 </script>
 </body>
